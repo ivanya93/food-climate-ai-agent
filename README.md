@@ -1,6 +1,6 @@
 # 🌍 Food & Climate AI Agent
 
-> *"I started this project during my Data Analytics Bootcamp but never had time to build the dashboard I envisioned. This is the completion of that story — now powered by AI."*
+> *"I started this project during my Data Analytics Bootcamp in AllWomen last year, but never had time to build the dashboard I envisioned. This is the completion of that story — now powered by AI."*
 > — Ivana Caridad Lovera Ruiz
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://food-climate-ai-agent-m6nkzugdffpk3uftxphappk.streamlit.app/)
