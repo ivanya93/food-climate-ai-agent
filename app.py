@@ -19,7 +19,9 @@ client = anthropic.Anthropic()
 # --- LOAD DATA ---
 @st.cache_data
 def load_data():
-    return pd.read_csv("/Users/ivanacaridad/Documents/GitHub/my-agents-CLAUDE/food-climate/final_merged_dataset_Food_Climate_Project.csv")
+    import os
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    return pd.read_csv(os.path.join(base_path, "final_merged_dataset_Food_Climate_Project.csv"))
 
 df = load_data()
 
