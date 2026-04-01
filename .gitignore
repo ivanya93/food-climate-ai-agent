@@ -1,0 +1,6 @@
+AI_Agent_Claud.env
+.env
+.DS_Store
+insights_*.txt
+__pycache__/
+.streamlit/secrets.toml
