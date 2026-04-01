@@ -24,9 +24,9 @@ Ask the agent anything:
 
 ## 📖 The Story Behind This Project
 
-In 2024, I completed a **Data Analytics Bootcamp** and built a full data analysis project on food production and climate change — [Food & Climate: Data-Driven Sustainability](https://github.com/ivanya93/Food-Climate-Data-Driven-Sustainability). I always wanted to turn it into an interactive tool but never found the time.
+In 2025, I completed a **Data Analytics Bootcamp** with AllWomen, and built a full data analysis project on food production and climate change — [Food & Climate: Data-Driven Sustainability](https://github.com/ivanya93/Food-Climate-Data-Driven-Sustainability). I always wanted to turn it into an interactive tool but never found the time.
 
-In 2025, while studying my **Master's in Business Analytics & AI at Porto Business School**, I learned to build AI agents. This project is the completion of that original vision — not just a dashboard, but a conversational AI analyst that anyone can query in plain English.
+In 2026, while studying my **Master's in Business Analytics & AI at Porto Business School**, I learned to build AI agents. This project is the completion of that original vision — not just a dashboad, but a conversational AI analyst that anyone can query in plain English.
 
 ---
 
