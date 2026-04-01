@@ -1,4 +1,4 @@
-anthropic
+anthropic==0.86.0
 pandas
 streamlit
 python-dotenv
