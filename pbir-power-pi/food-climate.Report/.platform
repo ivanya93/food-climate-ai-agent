@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "food-climate"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "578ff4e7-aa8b-46e0-80f5-0c8271bde077"
+  }
+}

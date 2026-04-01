@@ -1,0 +1,90 @@
+table final_merged_dataset_Food_Climate_Project
+	lineageTag: a28c7873-dd7d-47b0-ad50-aae8d6149fd7
+
+	column country
+		dataType: string
+		lineageTag: a9f46749-4b48-4743-bd05-32bc42b731e8
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bfd628f-d4b1-4ff8-b4d0-3550506f63fc
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column food_item
+		dataType: string
+		lineageTag: 368a74c3-8587-421a-9d21-1e1f2120ca21
+		summarizeBy: none
+		sourceColumn: food_item
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_year_temp_change
+		dataType: double
+		lineageTag: b73d7ba4-494f-4c91-8b44-01760c516c8e
+		summarizeBy: sum
+		sourceColumn: avg_year_temp_change
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column country_code
+		dataType: string
+		lineageTag: b3459409-c89e-4f0f-bf0d-1f9a9f847837
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column emissions_CO2eq_AR5
+		dataType: double
+		lineageTag: 8bab4ba8-2513-464b-a11b-048385dfcadd
+		summarizeBy: sum
+		sourceColumn: emissions_CO2eq_AR5
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GHG_kg
+		dataType: double
+		lineageTag: 351557c7-b1a5-451c-80f1-1abfd8959a79
+		summarizeBy: sum
+		sourceColumn: GHG_kg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column production_tonnes
+		dataType: double
+		lineageTag: e57c6192-dec9-4825-95ce-a75874d15fad
+		summarizeBy: sum
+		sourceColumn: production_tonnes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition final_merged_dataset_Food_Climate_Project = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("Z:\Documents\GitHub\my-agents-CLAUDE\food-climate\final_merged_dataset_Food_Climate_Project.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"country", type text}, {"year", Int64.Type}, {"food_item", type text}, {"avg_year_temp_change", type number}, {"country_code", type text}, {"emissions_CO2eq_AR5", type number}, {"GHG_kg", type number}, {"production_tonnes", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
