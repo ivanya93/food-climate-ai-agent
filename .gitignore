@@ -10,7 +10,7 @@ pbir-power-pi/
 data/
 
 # Generated outputs
-insights/
+insights/*
 !insights/.gitkeep
 insights_*.txt
 
