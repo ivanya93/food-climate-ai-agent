@@ -10,7 +10,8 @@ load_dotenv()
 client = anthropic.Anthropic()
 
 # Load dataset
-df = pd.read_csv("/Users/ivanacaridad/Documents/GitHub/my-agents-CLAUDE/food-climate/final_merged_dataset_Food_Climate_Project.csv")
+_base_path = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_csv(os.path.join(_base_path, "data", "final_merged_dataset_Food_Climate_Project.csv"))
 print(f"✅ Dataset loaded: {len(df):,} rows, {len(df.columns)} columns")
 
 # --- MEMORY: stores the full conversation ---
@@ -211,7 +212,7 @@ def save_insights():
         return
 
     filename = f"insights_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-    filepath = f"/Users/ivanacaridad/Documents/GitHub/my-agents-CLAUDE/food-climate/{filename}"
+    filepath = os.path.join(_base_path, "insights", filename)
 
     with open(filepath, "w") as f:
         f.write("=" * 60 + "\n")

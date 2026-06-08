@@ -21,7 +21,7 @@ client = anthropic.Anthropic()
 def load_data():
     import os
     base_path = os.path.dirname(os.path.abspath(__file__))
-    return pd.read_csv(os.path.join(base_path, "final_merged_dataset_Food_Climate_Project.csv"))
+    return pd.read_csv(os.path.join(base_path, "data", "final_merged_dataset_Food_Climate_Project.csv"))
 
 df = load_data()
 
@@ -200,7 +200,8 @@ with st.sidebar:
     if st.button("💾 Save insights", use_container_width=True):
         if st.session_state.messages:
             filename = f"insights_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-            filepath = f"/Users/ivanacaridad/Documents/GitHub/my-agents-CLAUDE/food-climate/{filename}"
+            base_path = os.path.dirname(os.path.abspath(__file__))
+            filepath = os.path.join(base_path, "insights", filename)
             with open(filepath, "w") as f:
                 f.write("FOOD & CLIMATE AGENT — SESSION INSIGHTS\n")
                 f.write(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")

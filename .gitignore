@@ -1,6 +1,32 @@
-AI_Agent_Claud.env
+# Environment & secrets
 .env
-.DS_Store
-insights_*.txt
-__pycache__/
+*.env
 .streamlit/secrets.toml
+
+# Power BI
+pbir-power-pi/
+
+# Data files (too large for git)
+data/
+
+# Generated outputs
+insights/
+!insights/.gitkeep
+insights_*.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/settings.json
