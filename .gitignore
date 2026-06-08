@@ -6,9 +6,6 @@
 # Power BI
 pbir-power-pi/
 
-# Data files (too large for git)
-data/
-
 # Generated outputs
 insights/*
 !insights/.gitkeep
