@@ -138,7 +138,7 @@ def run_agent(user_message: str, history: list) -> str:
 
     while True:
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1024,
             system=system,
             tools=tools,
