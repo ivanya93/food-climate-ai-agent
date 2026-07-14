@@ -160,33 +160,33 @@ def run_agent(user_message: str):
         )
 
         if response.stop_reason == "tool_use":
-            tool_use = next(b for b in response.content if b.type == "tool_use")
-            tool_name = tool_use.name
-            tool_input = tool_use.input
+            tool_results = []
+            for tool_use in (b for b in response.content if b.type == "tool_use"):
+                tool_name = tool_use.name
+                tool_input = tool_use.input
 
-            print(f"🔧 Using tool: {tool_name}")
+                print(f"🔧 Using tool: {tool_name}")
 
-            if tool_name == "get_dataset_info":
-                result = get_dataset_info()
-            elif tool_name == "query_data":
-                result = query_data(tool_input["question"])
-            elif tool_name == "get_country_data":
-                result = get_country_data(tool_input["country"])
-            elif tool_name == "compare_countries":
-                result = compare_countries(tool_input["countries"])
-            else:
-                result = "Tool not found"
+                if tool_name == "get_dataset_info":
+                    result = get_dataset_info()
+                elif tool_name == "query_data":
+                    result = query_data(tool_input["question"])
+                elif tool_name == "get_country_data":
+                    result = get_country_data(tool_input["country"])
+                elif tool_name == "compare_countries":
+                    result = compare_countries(tool_input["countries"])
+                else:
+                    result = "Tool not found"
 
-            # Add tool interaction to memory
-            conversation_history.append({"role": "assistant", "content": response.content})
-            conversation_history.append({
-                "role": "user",
-                "content": [{
+                tool_results.append({
                     "type": "tool_result",
                     "tool_use_id": tool_use.id,
                     "content": result
-                }]
-            })
+                })
+
+            # Add tool interaction to memory
+            conversation_history.append({"role": "assistant", "content": response.content})
+            conversation_history.append({"role": "user", "content": tool_results})
 
         else:
             final_answer = response.content[0].text
